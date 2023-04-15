@@ -1,143 +1,77 @@
-![](https://pic1.zhimg.com/v2-ca17038880b7f14bb667684dcea683b8_b.jpg)
+最近在用obsidian写文章的时候，发现一个致命的问题，就是上传的图片是保存在本地的，导致以下几个常见问题：
 
-随着 Obsidian 公开课的分享，我们建立了关于效率工具的公益群。在群里，我们接触到了很多使用 Obsidian 的小伙伴。
+1.  如果在obsidian写好文章去网站发布的话，图片不能直接简单的复制过去。
+2.  因为图片是保存在本地的，导入、导出以前迁移不方便  
+    经过研究，发现如果把图片存在图床上，可以完美解决这些问题。  
+    原理：  
+    所谓图床，通俗点可以理解为用来保存图片的网盘，配置好了图床后，当你再插入图片时，图片会被上传并保存在图床当中，并返回一个图片的链接，这样以后如果文档被移动时就不用考虑图片链接的路径问题了，因为此时的链接指向的是云端而不是本地。  
+    实操：  
+    结合 [https://blog.csdn.net/qq\_44770178/article/details/128251145](https://link.zhihu.com/?target=https%3A//blog.csdn.net/qq_44770178/article/details/128251145) 设置
 
-其中，很多小伙伴都提到过一个问题：
+**一、注册SM.MS**
 
-> Obsidian 应该怎么管理图片附件呀？
-> 
-> 图片一多，就让资料库看起来非常混乱。
+[SM.MS](https://link.zhihu.com/?target=https%3A//u.sb/sm-ms/) 是一个免费和收费的图片储存及分享服务（Image Hosting、图床），注册成功即可获得5GB的免费容量。
 
-这篇文章，就帮助你，用一种更好的方式来管理图片附件。
+1.  注册后登录之后点击User——>Dashboard。
 
-这就是**为你的 Obsidian 建立一个图床。**
+![](https://pic1.zhimg.com/v2-f025aad94e0cc6aad885ae45a6dcf488_b.jpg)
 
-## 02 图床
+image.png
 
-那么，问题来了：什么是图床？
+1.  在控制面版，可以看到容量的使用情况，点击API Token，进入API Access界面
 
-你可以简单的把它理解为**一个专门用于上传图片的网盘**。所有存进去的图片，你都能够得到一个链接，通过这个链接，就能够打开你需要的图片。
+![](https://pic1.zhimg.com/v2-017fb0eb9e554b4ef76449cd2b764e28_b.jpg)
 
-这便是：**图片即链接。**
+Pasted image 20230331093541.png
 
-所以，有了图床之后，我在 Obsidian 中插入图片，只需要放一个链接：
+1.  获取API 以备后用
 
-![](https://pic4.zhimg.com/v2-0ce233a362b07b4edc6d2719bcbb88d7_b.jpg)
+![](https://pic3.zhimg.com/v2-c6b45cb01875fc4148066fb75b6b0b2e_b.jpg)
 
-不仅仅是在 Obsidian 中，几乎你在网上看到的大部分图片，其实都有专门的图床。
+Pasted image 20230331093633.png
 
-图床所带的好处，主要有两点：
+## **二、安装!**
 
-第一，**无需管理图片**。放到图床中的图片，你使用它，都只需要一个链接，把这个链接放到你需要的内容中，图片就能展示出来。
+下载链接：[https://molunerfinn.com/PicGo/](https://link.zhihu.com/?target=https%3A//molunerfinn.com/PicGo/)
 
-第二，**内容与图片完全分离。**
+安装后，打开PicGo，在图床设置的SM.MS设置中填入刚才生成的密钥，点击确定  
 
-之前，我使用 Bear 来完成写作，图片也是放 Bear 中。后来，我想把 Bear 中的内容迁出，真是大费周章。而迁移的最大难点，便是图片的迁移。
+![](https://pic4.zhimg.com/v2-0c7ec29d099c9152ee7339199f6002df_b.jpg)
 
-但是，有了图床，这就简单多了：因为我文章中所使用的图片，全都只是链接。
+image.png
 
-这样一来，我所有的笔记，也就全都只是纯文本。
+![](https://pic3.zhimg.com/v2-a21a152b11de26d7672c9d9d1059d726_b.jpg)
 
-所以，在未来我可以轻松把所有笔记迁移到一款新的工具中。比如，在 Obsidian 中的笔记，我可以直接全选复制，粘贴到 Typora 中：
+image.png
 
-![](https://pic1.zhimg.com/v2-97c15786e1f1d5e931edc2c29f8d0a88_b.jpg)
+注意：根据SM.MS官网的提示：`Due to network issues, users from China Mainland are unable to access SM.MS, we have added an alternate domain name smms.app`，这里我们需要在备用上传域名中填上`smms.app`
 
-在保持原有的内容和格式不变的条件下，图片也完全不受影响。
+然后在PicGo设置中设置Server，点击确定即可。
 
-## 03 建立自己的图床
+![](https://pic4.zhimg.com/v2-10b0537c1edaf2b3596f39150222810b_b.jpg)
 
-了解图床的好处之后，我们就来建立一个自己的图床吧！
+![](https://pic2.zhimg.com/v2-f61c4fad51bc096ef7d584a47646420d_b.jpg)
 
-整个过程，分为三阶段：
+其他设置推荐：建议开启时间戳重命名，不然存在同名文件会出错
 
-1.  建立存储桶，实现手动上传图片。
-2.  配置 Picgo 软件，实现自动上传图片。
-3.  设置 Obsidian，实现在 Obsidian 中自动上传图片。
+## **三、安装Image auto upload Plugin插件（Obsidian）**
 
-### 1\. 建立存储桶
+在第三方插件中，安装Image auto upload Plugin
 
-在本文中，我们建立图床的工具，是**腾讯云对象存储**（COS，以下简称 COS）。
+![](https://pic3.zhimg.com/v2-28a7e58ba4a7c264732f6a66f40fadf6_b.jpg)
 
-这是一项**收费服务**，但如果你仅把它作为 Obsidian 的图床使用，一年存下 500M 图片，那么年费不会超过 10 元——人人都能承受！
+将PicGo server改为`http://127.0.0.1:36677/upload`即可  
 
-你可以直接在腾讯云的这官网注册账号：[https://cloud.tencent.com](https://link.zhihu.com/?target=https%3A//cloud.tencent.xn--com-t33es65add84u1sidk5hkia6803i)
+![](https://pic4.zhimg.com/v2-bcbd315c641eecc1524b50f58923850f_b.jpg)
 
-然后，找到对象存储：
+Pasted image 20230331094622.png
 
-![](https://pic4.zhimg.com/v2-e8b9d957a947610b7485662527b640d3_b.jpg)
+## **测试**
 
-并新建一个存储桶，这便是你图床存储图片的地方。
+此时，Obsidian中插入图片的，链接变成了https开头的，说明图片被上传到了图床当中，这样就不用担心图片丢失的问题了。  
 
-新建存储桶时，你需要输入存储桶名称（不能重名），并选择访问权限为 “公有读私有写” 或“公有读写”，其它无需更改。
+![](https://pic2.zhimg.com/v2-1c7574aff39c59683e2ab001a3224619_b.jpg)
 
-![](https://pic4.zhimg.com/v2-6df2f7e101c3d85e0e85050b67ac3797_b.jpg)
+Pasted image 20230331094733.png
 
-之后，你便有了一个自己的存储桶。你可以在 “文件列表” 页面中，自由上传自己的资料了。
-
-![](https://pic2.zhimg.com/v2-10002a856d67dc868832c95351c62b39_b.jpg)
-
-对了，腾讯云 COS 现在是按日计费，所以，**创建之后，记得充一点费用。** 不用充太多，10 块能用很久。
-
-### 2\. 安装并配置 Picgo
-
-现在，存储桶已经有了，你可以在文件列表中，手动上传你的图片了。
-
-但是，如何自动上传呢？
-
-这需要用到一款图床上传工具，名为**Picgo**。
-
-这是一款**免费开源**的软件，但官方下载链接放在 Github，如果无法访问，可以到我们的网盘中下载。
-
-安装好 Picgo 之后，我们需要先为它配置好图床信息。
-
-在 “图床设置” 中，选择“腾讯云 COS”，进行配置：
-
-![](https://pic4.zhimg.com/v2-d1f637bff12186b48b9279cb840d5a53_b.jpg)
-
-需要配置的信息，分为三类：
-
-第一，COS 版本，选择 V5。
-
-第二，SecretID 和 Key，以及 AppID，需要在 “密钥管理” 页面中新建并获取到。页面链接已经放到我们网盘的文档中。
-
-第三，存储空间名和存储区域，可以在 “存储桶列表” 页面中获取到。页面链接也已经放到我们网盘的文档中。
-
-最后，在 Picgo 中，你可以设定 “存储路径”，来指定将图片上传到某个具体的文件夹。设置时，请务必记得在末尾加上斜杠 / 。
-
-设置好之后，打开上传主界面，并将图床选择为 “腾讯云 COS”：
-
-![](https://pic1.zhimg.com/v2-4ba0ff9cdcc32db6d2a05135e57d5284_b.jpg)
-
-在这里，你可以选择一张图片，或者直接将图片拖入到上传区域，便会自动完成上传。
-
-上传完成之后，Picgo 会自动复制指定格式的链接。
-
-### 3\. 在 Obsidian 中自动上传图片
-
-现在，我们已经可以通过 Picgo 实现自动上传图片。
-
-但是，如何在 Obsidian 中实现自动上传呢？
-
-你需要一款名为 “**Image auto upload plugin**” 的 Obsidian 插件，插件的安装包，已经放到我们的网盘中。
-
-安装后，直接使用默认设置，无需做任何更改。
-
-![](https://pic3.zhimg.com/v2-d2dd71ffb60b8aa01ead25e8c7b44176_b.jpg)
-
-之后，你可以将图片粘贴，或拖动到 Obsidian 中，插件和 Picgo 会自动上传图片，并在对应的位置自动插入图片链接予以展示。
-
-请记得：**一定要先打开 Picgo，才能实现自动上传。** 你也可以像我一样，直接把 Picgo 设置为开机启动。
-
-以上，配置完成！
-
-## 04 上传现有图片
-
-从现在开始，你所有 Obsidian 中的图片，都会自动上传到图片，在 Obsidian 中，仅仅保存一个链接。
-
-那么问题来了：我之前笔记中的图片怎么上传呢？
-
-你可以以文章为单位，在 Obsidian 中，按下命令行快捷键 Ctrl / Command + P，并选择 "upload all images"。
-
-![](https://pic3.zhimg.com/v2-2f35982c7e897b44824ea900ad3514ea_b.jpg)
-
-即可将当前笔记中所有的图片上传至图床，并替换相关的链接，非常方便。
+并且在SM.MS的Dashboard可以看到图片的源文件
